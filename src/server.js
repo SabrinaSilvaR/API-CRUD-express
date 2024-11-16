@@ -9,7 +9,7 @@ const UserRoute = require('./routes/user')
 
 
 app.set('port', 3000);
-app.set(`case sensitive routing`, true) // para respetar mayusculas en url
+app.set(`case sensitive routing`, true) 
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -31,7 +31,7 @@ app.get('/products', (req, res) => {
     res.json(products)
 });
 app.post('/products', (req, res) => {
-    const newProduct = { id: products.length + 1, ...req.body, }// ... copia los elementos y agrega el id 
+    const newProduct = { id: products.length + 1, ...req.body, }
     // const { name, price } = req.body;
     // console.log(name, price)
     // const newProduct = { id: products.length, name, price } 
@@ -49,7 +49,7 @@ app.delete('/products', (req, res) => {
 app.get('/products/:id', (req, res) => {
     const productsFount = products.find(function (products) {
         return products.id == req.params.id
-        // return products.id === parseInt(req.params.id) transformar a numero 
+        // return products.id === parseInt(req.params.id) 
     })
     if (!productsFount) return res.status(404).json({
         message: 'products not found'
